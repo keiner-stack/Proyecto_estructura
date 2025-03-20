@@ -1,64 +1,73 @@
-# Proyecto_estructura
-**Innovación en la Gestión de Estacionamientos**
+**Sistema de Veterinaria**
+Los módulos del sistema están diseñados para trabajar de manera integrada, enfocándose en automatizar procesos, mejorar la experiencia del usuario y incorporar tecnologías innovadoras de forma simplificada. Cada módulo cumple una función específica dentro del flujo de la clínica veterinaria, pero están interconectados para garantizar coherencia y eficiencia. A continuación, se describen los módulos principales en conjunto:
+1. **Módulo de Registro y Autenticación**
+Propósito: Gestionar el acceso seguro de dueños y veterinarios al sistema.
+
+Funcionalidades Clave:
+
+Registro de dueños (nombre, correo, teléfono).
+
+Creación de perfiles de mascotas (nombre, especie, raza, edad, peso).
+
+Autenticación básica con usuario y contraseña (sin roles complejos al inicio).
+
+2. **Módulo de Agendamiento de Citas**
+Propósito: Permitir a los dueños programar y gestionar citas veterinarias.
+
+Funcionalidades Clave:
+
+Calendario interactivo (puede ser una tabla HTML simple).
+
+Selección de tipo de consulta (vacunación, revisión, emergencia).
+
+Envío de recordatorios por correo (usando SMTPLib en Python para simulaciones).
+
+3. **Módulo de Historia Clínica Digital**
+Propósito: Almacenar y organizar toda la información médica de las mascotas.
+
+Funcionalidades Clave:
+
+Registro de consultas (síntomas, diagnóstico, tratamiento).
+
+Subida de archivos básicos (ej: fotos de heridas en formato JPEG/PNG).
+
+Visualización del historial en una tabla ordenada por fecha.
+
+4. **Módulo de Generación de Reportes Automáticos**
+Propósito: Crear documentos formales para dueños y veterinarios.
+
+Funcionalidades Clave:
+
+Generación de PDFs con detalles de la consulta (usando ReportLab en Python).
+
+Plantilla básica con logo de la clínica, diagnóstico y recomendaciones.
+
+5. **Módulo de Soporte Diagnóstico (IA Simulada)**
+Propósito: Asistir a veterinarios con sugerencias basadas en síntomas.
+
+Funcionalidades Clave:
+
+Base de datos local de enfermedades comunes (ej: parásitos, alergias).
+
+Búsqueda de coincidencias entre síntomas ingresados y enfermedades (ej: "picazón + enrojecimiento → posible dermatitis").
+
+6. **Módulo de Interfaz de Usuario Web**
+Propósito: Facilitar la interacción con el sistema mediante una plataforma accesible.
+
+Funcionalidades Clave:
+
+Página de inicio con login y menú principal.
+
+Formularios intuitivos para registro de mascotas y citas.
+
+Panel de visualización del historial médico (tablas HTML + Bootstrap).
 
 
-El sistema está diseñado para revolucionar la gestión de parqueaderos, ofreciendo una solución integral que combina eficiencia, innovación y tecnología de vanguardia. Su objetivo principal es optimizar el uso de los espacios disponibles, mejorar la experiencia del usuario y proporcionar herramientas avanzadas para la administración del parqueadero lo que lo convierte en una solución inteligente y adaptable a las necesidades de parqueaderos de distintos tamaños y complejidades.
-
-A continuación, se describe la estructura modular del sistema, amplificando su alcance y funcionalidades:
+**Diagrama de Flujo**
 
 
-1. Módulo de Gestión de Espacios de Estacionamiento
-Funcionalidad: Este módulo se encarga de administrar los espacios disponibles en el parqueadero. Debe permitir:
-
-Registrar nuevos espacios (numerados o identificados).
-
-Asignar un espacio a un vehículo cuando ingresa.
-
-Liberar un espacio cuando un vehículo sale.
-
-Mostrar el estado actual de los espacios (disponibles, ocupados, reservados).
-
-Gestionar tipos de espacios (por ejemplo, para motos, autos, discapacitados, etc.).
-
-Integración: Este módulo se conecta con el módulo de registro de vehículos para asignar espacios y con el módulo de facturación para calcular el tiempo de estacionamiento.
-
-2. Módulo de Registro de Vehículos
-Funcionalidad: Este módulo gestiona la información de los vehículos que ingresan al parqueadero. Debe incluir:
-
-Registro de vehículos (placa, tipo de vehículo, modelo, color, etc.).
-
-Asociación del vehículo con un espacio de estacionamiento.
-
-Historial de ingresos y salidas del vehículo.
-
-Notificaciones o alertas (por ejemplo, si un vehículo excede el tiempo permitido).
-
-Integración: Se conecta con el módulo de gestión de espacios para asignar un lugar y con el módulo de facturación para generar cobros.
-
-3. Módulo de Facturación y Pagos
-Funcionalidad: Este módulo se encarga de calcular y gestionar los pagos por el uso del parqueadero. Debe permitir:
-
-Calcular el costo del estacionamiento en función del tiempo de permanencia.
-
-Generar facturas o recibos.
-
-Gestionar métodos de pago (efectivo, tarjeta, aplicaciones móviles, etc.).
-
-Registrar transacciones y mantener un historial de pagos.
-
-Ofrecer opciones de descuentos o tarifas especiales (por ejemplo, para clientes frecuentes).
-
-Integración: Este módulo se conecta con el módulo de registro de vehículos para obtener la información del tiempo de estacionamiento y con el módulo de gestión de usuarios para aplicar descuentos o tarifas personalizadas.
-
-4. Módulo de Gestión de Usuarios (Opcional, pero recomendado)
-Funcionalidad: Si el parqueadero ofrece servicios adicionales (como reservas o membresías), este módulo gestiona la información de los usuarios. Debe incluir:
-
-Registro de usuarios (nombre, contacto, tipo de usuario, etc.).
-
-Asignación de roles (administrador, cliente frecuente, empleado, etc.).
-
-Autenticación y control de acceso al sistema.
-
-Historial de uso del parqueadero por usuario.
-
-Integración: Se conecta con el módulo de facturación para aplicar tarifas personalizadas y con el módulo de registro de vehículos para asociar vehículos a usuarios.
+Dueño → Registro → Agenda Cita → Consulta (Síntomas) → [Sistema Sugiere Diagnóstico]  
+↓  
+Veterinario → Confirma Diagnóstico → Genera PDF → Almacena en Historial  
+↓  
+Dueño ← Accede a Historial/PDF ← Recibe Alerta (si hay anomalías simuladas)
