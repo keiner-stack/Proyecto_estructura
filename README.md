@@ -1,4 +1,5 @@
 **Sistema de Veterinaria**
+
 Los módulos del sistema están diseñados para trabajar de manera integrada, enfocándose en automatizar procesos, mejorar la experiencia del usuario y incorporar tecnologías innovadoras de forma simplificada. Cada módulo cumple una función específica dentro del flujo de la clínica veterinaria, pero están interconectados para garantizar coherencia y eficiencia. A continuación, se describen los módulos principales en conjunto:
 1. **Módulo de Registro y Autenticación**
 Propósito: Gestionar el acceso seguro de dueños y veterinarios al sistema.
