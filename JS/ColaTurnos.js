@@ -1,18 +1,17 @@
-// js/estructuras/ColaTurnos.js
 export class ColaTurnos {
   constructor() {
     this.turnos = [];
   }
 
-  enqueue(turno) {
+  agregar(turno) {
     this.turnos.push(turno);
   }
 
-  dequeue() {
+  siguiente() {
     return this.turnos.shift();
   }
 
-  get length() {
-    return this.turnos.length;
+  mostrar() {
+    return [...this.turnos]; // Copia para no modificar original
   }
 }
